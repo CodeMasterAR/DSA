@@ -22,15 +22,30 @@ public class BestTimetoBuyandSellStock {
     public static class Solution{
         public int maxProfit(int[] prices) {
             int n = prices.length;
-            int[] dp = new int[n];
-            int maxProfit = Integer.MIN_VALUE;
-            for (int i = 0; i < n; i ++){
-                for (int j = 0; j < i; j ++){
-                    if (prices[j] < prices[i]){
-                        dp[i] = Math.max(dp[i], prices[i] - prices[j]);
-                    }
+
+//            Bottom to Top Approach Using n space.
+//            int[] dp = new int[n];
+
+//            int maxProfit = Integer.MIN_VALUE;
+//            for (int i = 0; i < n; i ++){
+//                for (int j = 0; j < i; j ++){
+//                    if (prices[j] < prices[i]){
+//                        dp[i] = Math.max(dp[i], prices[i] - prices[j]);
+//                    }
+//                }
+//                maxProfit = Math.max(maxProfit, dp[i]);
+//            }
+
+//            Bottom to Top Approach (Using constant space
+            int minPrice = prices[0];
+            int maxProfit = 0;
+            for (int i = 1; i < n; i ++){
+                if (minPrice > prices[i]){
+                    minPrice = prices[i];
                 }
-                maxProfit = Math.max(maxProfit, dp[i]);
+                else{
+                    maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+                }
             }
             return maxProfit;
         }
