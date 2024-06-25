@@ -24,27 +24,3 @@ The problem requires checking if a given string can be constructed by repeating 
 #### Space complexity:
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
 + The space complexity is dominated by the $StringBuilder$, which can store a copy of the string, leading to a space complexity of $O(n)$.
-
-### GitHub Link: 
-https://github.com/CodeMasterAR/DSA/new/master/Strings/RepeatedSubstringPattern
-
-# Code
-```
-class Solution {
-    public boolean repeatedSubstringPattern(String s) {
-        int n = s.length();
-        for (int i = n/2; i > 0; i --){
-            if (n % i != 0){continue;}
-            StringBuilder sb = new StringBuilder();
-            int times = n / i;
-            String subString = s.substring(0, i);
-            while (times > 0){
-                sb.append(subString);
-                times --;
-            }
-            if (s.equals(sb.toString())){return true;}
-        }
-        return false;
-    }
-}
-```
