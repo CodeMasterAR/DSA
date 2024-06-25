@@ -17,13 +17,13 @@ The problem requires checking if a given string can be constructed by repeating 
 # Complexity
 #### Time complexity:
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
-+ The outer loop runs approximately $$2√n$$ times, where $$n$$ is the length of the string.
-+ Inside the loop, creating the substring and repeating it takes approximately $$O(n)$$ time.
-+ Thus, the overall time complexity is $$O(√n*n)$$.
++ The outer loop runs approximately $2√n$ times, where $$n$$ is the length of the string.
++ Inside the loop, creating the substring and repeating it takes approximately $O(n)$ time.
++ Thus, the overall time complexity is $O(√n*n)$.
 
 #### Space complexity:
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
-+ The space complexity is dominated by the $StringBuilder$, which can store a copy of the string, leading to a space complexity of $$O(n)$$.
++ The space complexity is dominated by the $StringBuilder$, which can store a copy of the string, leading to a space complexity of $O(n)$.
 
 ### GitHub Link: 
 https://github.com/CodeMasterAR/DSA/new/master/Strings/RepeatedSubstringPattern
