@@ -1,7 +1,7 @@
 package BST.BinarySearchTreetoGreaterSumTree;
 
-import com.sun.source.tree.Tree;
-
+import BST.Tree;
+import BST.Tree.*;
 import java.util.*;
 
 /*
@@ -24,19 +24,6 @@ All the values in the tree are unique.
  */
 
 public class BinarySearchTreetoGreaterSumTree {
-
-    public static class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode() {}
-     TreeNode(int val) { this.val = val; }
-     TreeNode(int val, TreeNode left, TreeNode right) {
-         this.val = val;
-         this.left = left;
-         this.right = right;
-     }
- }
 
     public static class Solution {
 
@@ -65,60 +52,16 @@ public class BinarySearchTreetoGreaterSumTree {
                 sc.nextLine(); // consume newline
                 System.out.print("Enter the nodes as a list (e.g., 4,1,6,0,2,5,7,null,null,null,3,null,null,null,8): ");
                 String[] nodes = sc.nextLine().split(",");
-                TreeNode root = buildTree(nodes);
+                Tree tree = new Tree();
                 System.out.println("Original BST:");
-                printTree(root);
+                TreeNode root = tree.buildTree(nodes, tree);
+                tree.printTree(root);
                 TreeNode gstRoot = s.bstToGst(root);
                 System.out.println("Greater Sum Tree:");
-                printTree(gstRoot);
+                tree.printTree(gstRoot);
                 T--;
             }
         }
 
-        // Helper method to build the tree from the input array
-        private static TreeNode buildTree(String[] nodes) {
-            if (nodes == null || nodes.length == 0 || nodes[0].equals("null")) {
-                return null;
-            }
-            TreeNode root = new TreeNode(Integer.parseInt(nodes[0]));
-            Queue<TreeNode> queue = new LinkedList<>();
-            queue.add(root);
-            int i = 1;
-            while (!queue.isEmpty() && i < nodes.length) {
-                TreeNode current = queue.poll();
-                if (i < nodes.length && !nodes[i].equals("null")) {
-                    current.left = new TreeNode(Integer.parseInt(nodes[i]));
-                    queue.add(current.left);
-                }
-                i++;
-                if (i < nodes.length && !nodes[i].equals("null")) {
-                    current.right = new TreeNode(Integer.parseInt(nodes[i]));
-                    queue.add(current.right);
-                }
-                i++;
-            }
-            return root;
-        }
-
-        // Helper method to print the tree in level order
-        private static void printTree(TreeNode root) {
-            if (root == null) {
-                System.out.println("null");
-                return;
-            }
-            Queue<TreeNode> queue = new LinkedList<>();
-            queue.add(root);
-            while (!queue.isEmpty()) {
-                TreeNode current = queue.poll();
-                if (current == null) {
-                    System.out.print("null ");
-                } else {
-                    System.out.print(current.val + " ");
-                    queue.add(current.left);
-                    queue.add(current.right);
-                }
-            }
-            System.out.println();
-        }
     }
 }
