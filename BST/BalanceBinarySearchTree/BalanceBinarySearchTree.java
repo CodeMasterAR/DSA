@@ -1,7 +1,7 @@
 package BST.BalanceBinarySearchTree;
 
-import BST.Tree;
-import BST.Tree.*;
+import BST.BSTree;
+import BST.BSTree.*;
 import java.util.*;
 
 /*
@@ -61,7 +61,7 @@ public class BalanceBinarySearchTree {
             sc.nextLine();
             System.out.print("Enter the nodes as a list (eg., 4,1,6,0,2,5,7,null,null,null,3,null,null,null,8): ");
             String[] nodes = sc.nextLine().split(",");
-            Tree tree = new Tree();
+            BSTree tree = new BSTree();
             System.out.println("Original String: ");
             TreeNode root = tree.buildTree(nodes, tree);
             tree.printTree(root);

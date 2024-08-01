@@ -1,14 +1,19 @@
 package BST;
 
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Tree {
+public class BSTree {
 
     public TreeNode root;
-    Tree tree;
+    private BSTree tree;
 
-    public Tree(){}
+    public BSTree(){}
+
+    public BSTree(TreeNode root) {
+        this.root = root;
+    }
 
     public static class TreeNode{
         public int val;
@@ -24,7 +29,7 @@ public class Tree {
     }
 
     // Helper method to build the tree from the input array
-    public TreeNode buildTree(String[] nodes, Tree tree) {
+    public TreeNode buildTree(String[] nodes, BSTree tree) {
         if (nodes == null || nodes.length == 0 || nodes[0].equals("null")) {
             return null;
         }

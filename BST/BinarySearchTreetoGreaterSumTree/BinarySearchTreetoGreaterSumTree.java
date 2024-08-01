@@ -1,7 +1,7 @@
 package BST.BinarySearchTreetoGreaterSumTree;
 
-import BST.Tree;
-import BST.Tree.*;
+import BST.BSTree;
+import BST.BSTree.*;
 import java.util.*;
 
 /*
@@ -52,7 +52,7 @@ public class BinarySearchTreetoGreaterSumTree {
                 sc.nextLine(); // consume newline
                 System.out.print("Enter the nodes as a list (e.g., 4,1,6,0,2,5,7,null,null,null,3,null,null,null,8): ");
                 String[] nodes = sc.nextLine().split(",");
-                Tree tree = new Tree();
+                BSTree tree = new BSTree();
                 System.out.println("Original BST:");
                 TreeNode root = tree.buildTree(nodes, tree);
                 tree.printTree(root);
